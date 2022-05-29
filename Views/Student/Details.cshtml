@@ -1,0 +1,42 @@
+﻿@model Test6.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalji</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndeksa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndeksa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aktivan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aktivan)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StudentID" class="btn btn-primary">Izmeni</a> |
+    <a asp-action="Index" class="btn btn-secondary">Nazad na listu</a>
+</div>

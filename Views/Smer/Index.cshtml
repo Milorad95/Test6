@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Test6.Models.Smer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj novi smer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NazivSmera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aktivan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazivSmera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aktivan)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SmerID" class="btn btn-primary">Izmeni</a> |
+                <a asp-action="Details" asp-route-id="@item.SmerID" class="btn btn-secondary">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.SmerID" class="btn btn-danger" new { onclick = "return deleteProductModal()" }>Obrisi</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script>
+    function deleteProductModal() {
+        return confirm('Da li ste sigurni da zelite da obrisete?');
+    }
+</script>
