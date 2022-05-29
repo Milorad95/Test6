@@ -25,7 +25,7 @@ namespace Test6.Models
 
         [DisplayName("Naziv smera")]
         [Required(ErrorMessage = "Naziv je obavezan")]
-        public Smer Smer { get; set; } = new Smer();
+        public Smer? Smer { get; set; } = new Smer();
 
         [DisplayName("Aktivan")]
         public bool Aktivan { get; set; }

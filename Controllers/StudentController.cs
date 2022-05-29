@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Test6.Data;
 using Test6.Models;
 
@@ -43,6 +44,9 @@ namespace Test6.Controllers
         // GET: StudentController/Create
         public ActionResult Create()
         {
+            var smerovi = _context.Smerovi.ToList();
+            ViewData["smerovi"] = new SelectList(smerovi, "SmerID", "NazivSmera");
+
             return View("Edit", new Student());
         }
 
@@ -64,6 +68,8 @@ namespace Test6.Controllers
         // GET: StudentController/Edit/5
         public ActionResult Edit(int id)
         {
+            var smerovi = _context.Smerovi.ToList();
+            ViewData["smerovi"] = new SelectList(smerovi, "SmerID", "NazivSmera");
             return View(_context.Studenti.SingleOrDefault(s => s.StudentID == id));
         }
 
